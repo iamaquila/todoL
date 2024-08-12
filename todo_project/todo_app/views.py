@@ -1,5 +1,3 @@
-from django.shortcuts import render, redirect
-from .models import Task
 
 # Create your views here.
 from django.shortcuts import render, redirect
@@ -43,4 +41,3 @@ def toggle_task(request, task_id):
     task.completed = not task.completed
     task.save()
     return redirect('home')
-    
