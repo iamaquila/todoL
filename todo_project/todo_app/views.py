@@ -1,4 +1,3 @@
-# Create your views here.
 from django.shortcuts import render, redirect
 from .models import Task
 from .forms import TaskForm
@@ -15,4 +14,3 @@ def task_add(request):
             form.save()
             return redirect('task_list')
     return render(request, 'todo_app/task_add.html', {'form': form})
-
