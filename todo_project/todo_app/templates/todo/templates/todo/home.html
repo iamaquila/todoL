@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List & Pomodoro Timer</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .completed { text-decoration: line-through; }
+    </style>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="task" placeholder="Yeni görev ekle...">
+        <button type="submit">Ekle</button>
+    </form>
+
+    <ul>
+        {% for task in tasks %}
+            <li class="{% if task.completed %}completed{% endif %}">
+                {{ task.text }}
+                <a href="{% url 'toggle_task' task.id %}">
+                    {% if task.completed %}Yeniden Başlat{% else %}Tamamlandı{% endif %}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Pomodoro Zamanlayıcı</h2>
+    <div id="timer">
+        <span id="minutes">25</span>:<span id="seconds">00</span>
+    </div>
+    <button onclick="startTimer()">Başlat</button>
+    <button onclick="stopTimer()">Durdur</button>
+    <button onclick="resetTimer()">Sıfırla</button>
+
+    <script>
+        let timerInterval;
+        let minutes = 25;
+        let seconds = 0;
+
+        function updateTimerDisplay() {
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        function startTimer() {
+            if (timerInterval) return;
+            timerInterval = setInterval(() => {
+                if (seconds === 0) {
+                    if (minutes === 0) {
+                        clearInterval(timerInterval);
+                        timerInterval = null;
+                        alert('Pomodoro süresi doldu!');
+                        return;
+                    }
+                    minutes--;
+                    seconds = 59;
+                } else {
+                    seconds--;
+                }
+                updateTimerDisplay();
+            }, 1000);
+        }
+
+        function stopTimer() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+        }
+
+        function resetTimer() {
+            stopTimer();
+            minutes = 25;
+            seconds = 0;
+            updateTimerDisplay();
+        }
+
+        updateTimerDisplay();
+    </script>
+</body>
+</html>

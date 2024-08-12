@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .models import Task
 
 # Create your views here.
 from django.shortcuts import render, redirect
@@ -15,3 +16,21 @@ def task_add(request):
         Task.objects.create(title=title, description=description)
         return redirect('task_list')
     return render(request, 'task_add.html')
+
+
+def home(request):
+    if request.method == 'POST':
+        task_text = request.POST.get('task')
+        if task_text:
+            Task.objects.create(text=task_text)
+        return redirect('home')
+
+    tasks = Task.objects.all()
+    return render(request, 'todo/home.html', {'tasks': tasks})
+
+def toggle_task(request, task_id):
+    task = Task.objects.get(id=task_id)
+    task.completed = not task.completed
+    task.save()
+    return redirect('home')
+    
