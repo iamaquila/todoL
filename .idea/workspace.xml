@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22003138-7b26-43e4-a1c9-19bad12959c0" name="Changes" comment="3.commit">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_9_08_2024_16_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_9_08_2024_16_00__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_9_08_2024_16_00__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_9_08_2024_16_00__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo_project/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo_project/todo_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo_project/todo_app/templates/todo_app/task_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/templates/todo_app/task_add.html" afterDir="false" />
-    </list>
+    <list default="true" id="22003138-7b26-43e4-a1c9-19bad12959c0" name="Changes" comment="3.commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
