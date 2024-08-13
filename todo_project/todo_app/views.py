@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from .models import Task
 from .forms import TaskForm
 
+def homepage(request):
+    return render(request, 'todo_app/homepage.html')
+
 def task_list(request):
     tasks = Task.objects.all()
     return render(request, 'task_list.html', {'tasks': tasks})

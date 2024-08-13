@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22003138-7b26-43e4-a1c9-19bad12959c0" name="Changes" comment="3.commit" />
+    <list default="true" id="22003138-7b26-43e4-a1c9-19bad12959c0" name="Changes" comment="bos">
+      <change afterPath="$PROJECT_DIR$/todo_project/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/todo_project/todo_app/templates/todo_app/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_project/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_project/todo_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_project/todo_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -52,22 +59,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;ays&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Django Server.todo.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "django.template.preview.state": "SHOW_EDITOR",
+    "git-widget-placeholder": "ays",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ayzza\PycharmProjects\todo\todo_project\todo_app\templates\todo_app" />
@@ -81,6 +90,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="bin" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -117,6 +127,7 @@
       <updated>1723209948241</updated>
       <workItem from="1723209950975" duration="3319000" />
       <workItem from="1723445479658" duration="3840000" />
+      <workItem from="1723535185960" duration="3799000" />
     </task>
     <task id="LOCAL-00001" summary="3.commit">
       <option name="closed" value="true" />
@@ -126,7 +137,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723453142662</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="bos">
+      <option name="closed" value="true" />
+      <created>1723469976447</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1723469976447</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,7 +164,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="3.commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="3.commit" />
+    <MESSAGE value="bos" />
+    <option name="LAST_COMMIT_MESSAGE" value="bos" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/todo$urls.coverage" NAME="urls Coverage Results" MODIFIED="1723194750378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/todo_project/todo_app" />

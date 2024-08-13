@@ -1,0 +1,3 @@
+/.venv
+/todo_project/env
+/todo_project/db.sqlite3
