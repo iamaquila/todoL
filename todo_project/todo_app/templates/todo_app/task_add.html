@@ -1,19 +1,47 @@
 <head>
     <meta charset="UTF-8">
     <title>{% extends 'base.html' %}
-
-{% block content %}
-  <h2>Add a New Task</h2>
-  <form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Add Task</button>
-  </form>
-{% endblock %}
-</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+    {% extends 'base.html' %}
 
+    {% block content %}
+    <h2>Add a New Task</h>
+    <div id="task-form-container">
+        <form id="task-form" method="POST" action="{% url 'task_add' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Add new list</button>
+        </form>
+    </div>
+
+    <div id="task-list-container">
+        <ul id="task-list">
+            {% for task in tasks %}
+                <li>{{ task.name }}</li>
+            {% empty %}
+                <li>No tasks yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endblock %}
+
+    <script>
+    $('#task-form').submit(function(event) {
+        event.preventDefault();
+        $.ajax({
+            url: $(this).attr('action'),
+            method: 'POST'
+            data: $(this).serialize(),
+            sucess: function(data) }
+                $('#task-list-container').gtml($(data).find('#task-list-container').html());
+            }
+            error: function(chr) {
+                console.error('Error:',xhr.responseText);
+            }
+        });
+    });
+    </script>
 </body>
 </html>
-

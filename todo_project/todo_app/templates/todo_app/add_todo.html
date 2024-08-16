@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New To-Do</title>
+
+    <!-- Adding Bootstrap CSS for quick styling -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #efffd4 ;
+            font-family: Arial, sans-serif;
+        }
+
+        .form-container {
+            margin-top: 50px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #343a40;
+        }
+
+        button {
+            background-color: #5f9ea0;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Container for the form -->
+<div class="container d-flex justify-content-center">
+    <div class="form-container col-md-6">
+        {% extends 'base.html' %}
+        {% block content %}
+          <h2 class="text-center">Add a New To-Do</h2>
+          <form method="POST" class="mt-4">
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- Renders the form fields with proper spacing -->
+            <div class="text-center">
+                <button type="submit" class="btn btn-success mt-3">Add To-Do</button>
+            </div>
+          </form>
+        {% endblock %}
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies (optional) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -13,16 +13,14 @@ Class-based views
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+
+
+    DO NOT ADD ANYTHING HERE!!
 """
 from django.contrib import admin
 from django.urls import path, include
-from todo_app.views import task_list, task_add
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('todo_app.urls')),
-
-    path('', task_list, name='task_list'),
-
-    path('add/', task_add, name='task_add'),
 ]

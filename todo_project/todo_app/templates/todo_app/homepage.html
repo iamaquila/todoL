@@ -1,106 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, inital-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodoro & To-Do List</title>
     <style>
         body {
             display: flex;
             height: 100vh;
             margin: 0;
-            font-family: "Century Schoolbook";
+            font-family: "Century Schoolbook", sans-serif;
+            background-color: #e9f0f7;
         }
 
         .left-side, .right-side {
             width: 50%;
-            padding: 20px;
+            padding: 40px;
             box-sizing: border-box;
         }
 
         .left-side {
-            background-color: #f5faff;
+            background-color: #f0faff;
+            border-right: 2px solid #d1d8e0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
         }
 
         .right-side {
-            background-color: #f8f8ff;
+            background-color: #f0faff;
             display: flex;
-            align-items: center;
-            justify-content: center;
             flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .pomodoro-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
         }
 
         .pomodoro {
-            width: 100px;
-            height: 100px;
-            margin: 10px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            color: blanchedalmond;
+            margin: 0 10px;
+            text-align: center;
         }
 
-        .pomodoro-15 {
-            background-color: #800000;
+        .pomodoro-btn {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #b30000;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
-        .pomodoro-30 {
-            background-color: #800000;
-        }
-        .pomodoro-60 {
-            background-color: #800000;
+
+        .pomodoro-btn:hover {
+            background-color: #ff4d4d;
+            transform: translateY(-5px);
         }
 
         .to-do-list {
-            margin-top:20px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 80%;
         }
+
+        .countdown {
+            font-size: 100px;
+            margin-top: 100px;
+            margin-left: 100px;
+            color: #333
+            text-align: center;
+            width: 360px; /* Adjust the width as needed */
+            background-color: #f0faff;
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+
         .to-do-list h2 {
-            margin-bottom: 10px
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 15px;
         }
-        .to-do-list from input {
-            margin-right: 10px;
+
+        .to-do-list form {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .to-do-list form input {
+            width: 70%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #d1d8e0;
+            border-radius: 5px;
+        }
+
+        .to-do-list form button {
+            background-color: #3498db;
+            color: #ffffff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .to-do-list form button:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
         }
     </style>
 </head>
 <body>
+    <!-- Left Side: To-Do List Section -->
     <div class="left-side">
         <div class="to-do-list">
             <h2>Your To-Do Lists</h2>
-            <form>
-                <input type="text" placeholder="Add new list">
+            <form method="POST" action="{% url 'add_todo' %}">
+                {% csrf_token %}
+                <input type="text" placeholder="Add new list" name="todo_item" required>
                 <button type="submit">Add</button>
             </form>
         </div>
     </div>
+
+    <!-- Right Side: Pomodoro Timers -->
     <div class="right-side">
-        <div class="pomodoro pomodoro-15">
-            15 min
+        <div class="pomodoro-container">
+            <div class="pomodoro">
+                <button class="btn btn-outline-danger pomodoro-btn" id="pomodoro-15">15 min</button>
+            </div>
+            <div class="pomodoro">
+                <button class="btn btn-outline-danger pomodoro-btn" id="pomodoro-30">30 min</button>
+            </div>
+            <div class="pomodoro">
+                <button class="btn btn-outline-danger pomodoro-btn" id="pomodoro-60">60 min</button>
+            </div>
         </div>
-        <div class="pomodoro pomodoro-30">
-            30 min
-        </div>
-        <div class="pomodoro pomodoro-60">
-            60 min
+        <div class="countdown-container">
+            <div class="countdown" id="countdown-display">00:00</div>
         </div>
     </div>
 
+
+    <!-- JavaScript for Pomodoro Functionality -->
     <script>
-        document.querySelectorAll('.pomodoro').forEach(function (pomodoro))
-        {
-            pomodoro.addEventListener('click', function () {
-                let time = parseInt(this.textContent);
-                let countdown = time * 60;
-                let timer = setInterval(() => {
-                    countdown--;
-                    let minutes = Math.floor(countdown / 60);
-                    let seconds = countdown % 60;
-                    this.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-                    if (countdown <= 0) {
-                        clearInterval(timer);
-                        this.textContent = `${time} min`;
-                    }
-                }, 1000);
-            });
-        });
+document.querySelectorAll('.pomodoro-btn').forEach(function (button) {
+    button.addEventListener('click', function () {
+        let time = parseInt(this.textContent);
+        let countdown = time * 60;
+        let countdownDisplay = document.getElementById(`countdown-${time}`);
+        let otherButtons = document.querySelectorAll('.pomodoro-btn');
+
+        if (countdownDisplay.textContent !== '00:00') return; // Prevent multiple countdowns
+
+        otherButtons.forEach(btn => btn.disabled = true); // Disable other buttons
+        let timer = setInterval(() => {
+            countdown--;
+            let minutes = Math.floor(countdown / 60);
+            let seconds = countdown % 60;
+            countdownDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+            if (countdown <= 0) {
+                clearInterval(timer);
+                countdownDisplay.textContent = '00:00'; // Reset countdown display
+                otherButtons.forEach(btn => btn.disabled = false); // Re-enable buttons
+            }
+        }, 1000);
+    });
+});
+
+let activeTimer = null;
+
+document.querySelectorAll('.pomodoro-btn').forEach(function (button) {
+    button.addEventListener('click', function () {
+        let time = parseInt(this.textContent);
+        let countdown = time * 60;
+        let countdownDisplay = document.getElementById('countdown-display');
+        let otherButtons = document.querySelectorAll('.pomodoro-btn');
+
+        if (activeTimer) return; // Prevent multiple timers from running
+
+        otherButtons.forEach(btn => btn.disabled = true); // Disable other buttons
+        let timer = setInterval(() => {
+            countdown--;
+            let minutes = Math.floor(countdown / 60);
+            let seconds = countdown % 60;
+            countdownDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+            if (countdown <= 0) {
+                clearInterval(timer);
+                countdownDisplay.textContent = '00:00'; // Reset countdown display
+                otherButtons.forEach(btn => btn.disabled = false); // Re-enable buttons
+                activeTimer = null; // Reset active timer
+            }
+        }, 1000);
+
+        activeTimer = timer; // Set active timer
+    });
+});
+
+
     </script>
 </body>
 </html>

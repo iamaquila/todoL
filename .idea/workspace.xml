@@ -4,13 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22003138-7b26-43e4-a1c9-19bad12959c0" name="Changes" comment="bos">
-      <change afterPath="$PROJECT_DIR$/todo_project/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/todo_project/todo_app/templates/todo_app/homepage.html" afterDir="false" />
+    <list default="true" id="22003138-7b26-43e4-a1c9-19bad12959c0" name="Changes" comment="Merge branch 'refs/heads/ays' into ays2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo_project/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_project/todo_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_project/todo_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_project/todo_app/templates/task_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/templates/task_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_project/todo_app/templates/todo_app/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/templates/todo_app/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_project/todo_app/templates/todo_app/task_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/templates/todo_app/task_add.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo_project/todo_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo_project/todo_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_project/todo_project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_project/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_project/todo_project/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_project/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +35,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="ays" />
+        <entry key="$PROJECT_DIR$" value="ays2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -48,9 +52,9 @@
     &quot;accountId&quot;: &quot;5e58ba8b-d2a5-4b18-b65b-21c25c5ca699&quot;
   }
 }</component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 3
-}</component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
   <component name="ProjectId" id="2kQJbpFBHfD343EY01Jl4OCleML" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -59,24 +63,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Django Server.todo.executor": "Run",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "django.template.preview.state": "SHOW_EDITOR",
-    "git-widget-placeholder": "ays",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Django Server.todo.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;ays&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.toDoOptions&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ayzza\PycharmProjects\todo\todo_project\todo_app\templates\todo_app" />
@@ -128,6 +132,12 @@
       <workItem from="1723209950975" duration="3319000" />
       <workItem from="1723445479658" duration="3840000" />
       <workItem from="1723535185960" duration="3799000" />
+      <workItem from="1723552694279" duration="5320000" />
+      <workItem from="1723617198340" duration="383000" />
+      <workItem from="1723639258975" duration="12000" />
+      <workItem from="1723640063086" duration="13000" />
+      <workItem from="1723643187480" duration="17000" />
+      <workItem from="1723805479206" duration="732000" />
     </task>
     <task id="LOCAL-00001" summary="3.commit">
       <option name="closed" value="true" />
@@ -145,7 +155,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723469976447</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Merge branch 'refs/heads/ays' into ays2">
+      <option name="closed" value="true" />
+      <created>1723539854041</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1723539854041</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Merge branch 'refs/heads/ays' into ays2">
+      <option name="closed" value="true" />
+      <created>1723539892705</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1723539892705</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,7 +191,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="3.commit" />
     <MESSAGE value="bos" />
-    <option name="LAST_COMMIT_MESSAGE" value="bos" />
+    <MESSAGE value="Merge branch 'refs/heads/ays' into ays2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'refs/heads/ays' into ays2" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/todo$urls.coverage" NAME="urls Coverage Results" MODIFIED="1723194750378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/todo_project/todo_app" />
