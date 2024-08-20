@@ -1,10 +1,10 @@
+
 <head>
     <meta charset="UTF-8">
     <title>{% extends 'base.html' %}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    {% extends 'base.html' %}
 
     {% block content %}
     <h2>Add a New Task</h>
@@ -34,7 +34,7 @@
             url: $(this).attr('action'),
             method: 'POST'
             data: $(this).serialize(),
-            sucess: function(data) }
+            success: function(data) }
                 $('#task-list-container').gtml($(data).find('#task-list-container').html());
             }
             error: function(chr) {

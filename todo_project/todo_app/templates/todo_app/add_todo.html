@@ -3,27 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New To-Do</title>
+    <title>Add New To-Do List</title>
 
     <!-- Adding Bootstrap CSS for quick styling -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
         body {
-            background-color: #efffd4 ;
-            font-family: Arial, sans-serif;
+            background-color: #FFFFFF;
+            font-family: "Century Schoolbook";
         }
 
         .form-container {
             margin-top: 50px;
             padding: 20px;
             border-radius: 8px;
-            background-color: white;
+            background-color: #FAFFFF;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
             color: #343a40;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
         }
 
         button {
@@ -36,7 +41,16 @@
         }
 
         button:hover {
-            background-color: #218838;
+            background-color: #4A493E;
+        }
+
+        input[type="date"], input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
         }
     </style>
 </head>
@@ -47,12 +61,22 @@
     <div class="form-container col-md-6">
         {% extends 'base.html' %}
         {% block content %}
-          <h2 class="text-center">Add a New To-Do</h2>
-          <form method="POST" class="mt-4">
+          <h2 class="text-center">Add Your New To-Do List</h2>
+          <form method="POST" class="mt-4" action="{% url 'homepage' %}">
             {% csrf_token %}
             {{ form.as_p }}  <!-- Renders the form fields with proper spacing -->
-            <div class="text-center">
-                <button type="submit" class="btn btn-success mt-3">Add To-Do</button>
+
+            <!-- Start Date Calendar Input -->
+            <label for="start_date">Start Date:</label>
+            <input type="date" id="start_date" name="start_date" required>
+
+            <!-- Deadline Date Calendar Input -->
+            <label for="deadline">Deadline:</label>
+            <input type="date" id="deadline" name="deadline" required>
+
+
+              <div class="text-center">
+                <button type="submit" class="btn btn-success mt-3">Add List</button>
             </div>
           </form>
         {% endblock %}
