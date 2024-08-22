@@ -34,3 +34,6 @@ def task_add(request):
         Task.objects.create(title=title, description=description)
         return redirect('task_list')
     return render(request, 'task_add.html')
+
+def homepage(request):
+    return render(request, 'homepage.html')

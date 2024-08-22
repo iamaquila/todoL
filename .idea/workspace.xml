@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22003138-7b26-43e4-a1c9-19bad12959c0" name="Changes" comment="changes">
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/todo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/todo.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_9_08_2024_16_00_[Changes]/shelved.patch" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_9_08_2024_16_00_[Changes]/shelved.patch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_9_08_2024_16_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_9_08_2024_16_00__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_project/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo_project/todo_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo_project/todo_app/templates/todo_app/add_todo.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/templates/todo_app/add_todo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo_project/todo_app/templates/todo_app/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/templates/todo_app/homepage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo_project/todo_app/templates/todo_app/task_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/templates/todo_app/task_add.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo_project/todo_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo_project/todo_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/views.py" afterDir="false" />
     </list>
@@ -158,7 +156,7 @@
       <workItem from="1724248656492" duration="2952000" />
       <workItem from="1724310222579" duration="1128000" />
       <workItem from="1724311394776" duration="2131000" />
-      <workItem from="1724314594940" duration="10599000" />
+      <workItem from="1724314594940" duration="10880000" />
     </task>
     <task id="LOCAL-00001" summary="3.commit">
       <option name="closed" value="true" />
@@ -208,7 +206,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724139541355</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="changes">
+      <option name="closed" value="true" />
+      <created>1724336568404</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1724336568404</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

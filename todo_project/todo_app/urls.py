@@ -4,6 +4,7 @@ from .views import task_add
 
 
 
+
 urlpatterns = [
     path('', views.homepage, name='homepage'),
     path('add/', task_add, name='task_add.html'),
