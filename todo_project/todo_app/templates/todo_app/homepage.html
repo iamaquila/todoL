@@ -20,20 +20,24 @@
         }
 
         .left-side {
-            background-color: #f0faff;
-            border-right: 2px solid #d1d8e0;
+            background: linear-gradient(to left, #B0C4DE, #ffffff); /* Adjust colors as needed */
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            align-items: center;
+            align-items: flex-start;
+            padding-left: 55px;
         }
 
         .right-side {
-            background-color: #f0faff;
+            background: linear-gradient(to left, #ffffff, #B0C4DE); /* Adjust colors as needed */
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
+            position: relative;
+            padding-bottom: 80px; /* Add padding to make space for the buttons */
         }
 
         .pomodoro-container {
@@ -66,29 +70,87 @@
             transform: translateY(-5px);
         }
 
-        .to-do-list {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            width: 80%;
+        .break-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .break-btn {
+            width: 60px; /* Pomodoro butonlarının yarı boyutu */
+            height: 60px;
+            border-radius: 50%;
+            font-size: 16px;
+            font-weight: bold;
+            color: #000000;
+            background-color: #5bc0de;
+            border: none;
+            cursor: pointer;
+            margin: 0 5px; /* Butonlar arasında boşluk bırakır */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .break-btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+
+        .break-btn.disabled {
+            background-color: gray;
+            pointer-events: none;
+            cursor: not-allowed;
         }
 
         .countdown {
             font-size: 100px;
-            margin-top: 100px;
-            margin-left: 100px;
+            margin-top: 66px;
             color: #333;
             text-align: center;
-            width: 360px; /* Adjust the width as needed */
-            background-color: #f0faff;
+            width: 360px;
         }
 
         .countdown-container {
             display: flex;
             justify-content: center;
             margin-top: 20px;
+        }
 
+        .control-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            position: absolute;
+            bottom: 20px;
+        }
+        
+        .control-btn {
+            width: 95px; 
+            height: 45px;
+            border-radius: 50%;
+            font-size: 13px;
+            font-weight: bold;
+            color: #000000;
+            background-color: #007bff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+
+        .control-buttons button {
+            font-size: 12px;
+            border: none;
+            cursor: pointer;
+            background-color: transparent;
+            color: #333;
+        }
+
+        .control-buttons button:hover {
+            color: #007bff;
+        }
+        
         .to-do-list h2 {
             font-size: 24px;
             color: #2c3e50;
@@ -115,7 +177,7 @@
             padding: 10px 20px;
             font-size: 16px;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
@@ -123,7 +185,7 @@
         .to-do-list form button:hover {
             background-color: #2980b9;
             transform: translateY(-3px);
-        }}
+        }
     </style>
 </head>
 <body>
@@ -136,107 +198,217 @@
                 <button type="submit">Add</button>
             </form>
 
-                <div class="container">
-                    <h1>To-Do Lists</h1>
-                    <ul>
-                        {% for item in todo_items %}
-                            <li>{{ item.name }}</li> <!-- Adjust according to your model fields -->
-                        {% empty %}
-                            <li>No to-do lists yet!</li>
-                        {% endfor %}
-                    </ul>
+            <div class="container">
+                <h1></h1>
+                <ul>
+                    {% for item in todo_items %}
+                        <li>{{ item.name }}</li> <!-- Adjust according to your model fields -->
+                    {% empty %}
+                        <li>No to-do lists yet!</li>
+                    {% endfor %}
+                </ul>
 
-                    <ul class="list-group">
-                        {% for todo_lists in todo_lists %}
-                        <li class="list-group-item">
-                            <strong>{{ todo.title }}</strong> - {{ todo.description }}
-                            {% if task.completed %}
-                            <span class="badge bg-success">Completed</span>
-                        /    {% endif %}
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
+                <ul class="list-group">
+                    {% for todo_lists in todo_lists %}
+                    <li class="list-group-item">
+                        <strong>{{ todo.title }}</strong> - {{ todo.description }}
+                        {% if task.completed %}
+                        <span class="badge bg-success">Completed</span>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </div>
 
-    <!-- Right Side: Pomodoro Timers -->
+    <!-- Right Side: Pomodoro Timers & Break Buttons -->
     <div class="right-side">
         <div class="pomodoro-container">
             <div class="pomodoro">
                 <button class="btn btn-outline-danger pomodoro-btn" id="pomodoro-15">15 min</button>
-            </div>
-            <div class="pomodoro">
                 <button class="btn btn-outline-danger pomodoro-btn" id="pomodoro-30">30 min</button>
-            </div>
-            <div class="pomodoro">
                 <button class="btn btn-outline-danger pomodoro-btn" id="pomodoro-60">60 min</button>
             </div>
         </div>
+
+        <div class="break-container">
+            <div class="pomodoro">
+                <button class="btn btn-outline-secondary break-btn disabled" id="break-5">5 min</button>
+            </div>
+            <div class="pomodoro">
+                <button class="btn btn-outline-secondary break-btn disabled" id="break-10">10 min</button>
+            </div>
+            <div class="pomodoro">
+                <button class="btn btn-outline-secondary break-btn disabled" id="break-20">20 min</button>
+            </div>
+        </div>
+
         <div class="countdown-container">
             <div class="countdown" id="countdown-display">00:00</div>
+            </div>
         </div>
-    </div>
+    
+<div class="control-container">
+    <button class="control-btn" id="pause-btn" disabled>
+        <svg width="16" height="16" fill="currentColor" class="bi bi-pause" viewBox="0 0 16 16">
+            <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-1.5 1.5H5a1.5 1.5 0 0 1-1.5-1.5V5A1.5 1.5 0 0 1 5 3.5h.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-1.5 1.5H10a1.5 1.5 0 0 1-1.5-1.5V5A1.5 1.5 0 0 1 10 3.5h.5z"></path>
+        </svg>
+        Pause
+    </button>
+    <button class="control-btn" id="reset-btn">
+        <svg width="16" height="16" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 0 16 16">
+            <path d="M11.534 7h1.942a.5.5 0 0 1 0 1H11.3a.5.5 0 0 1-.5-.5V3.5a.5.5 0 0 1 1 0v2.757a5 5 0 1 1-4.874 6.365.5.5 0 0 1 .97-.242A4 4 0 1 0 11.534 7z"></path>
+        </svg>
+        Reset
+    </button>
+    <button class="control-btn" id="continue-btn" disabled>
+        <svg width="16" height="16" fill="currentColor" class="bi bi-play" viewBox="0 0 16 16">
+            <path d="M6.646 4.646a.5.5 0 0 1 .708 0l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L10.293 8 6.646 4.354a.5.5 0 0 1 0-.708z"></path>
+        </svg>
+        Continue
+    </button>
+</div>
 
 
-    <!-- JavaScript for Pomodoro Functionality -->
-    <script>
-document.querySelectorAll('.pomodoro-btn').forEach(function (button) {
-    button.addEventListener('click', function () {
-        let time = parseInt(this.textContent);
-        let countdown = time * 60;
-        let countdownDisplay = document.getElementById(`countdown-${time}`);
-        let otherButtons = document.querySelectorAll('.pomodoro-btn');
-
-        if (countdownDisplay.textContent !== '00:00') return; // Prevent multiple countdowns
-
-        otherButtons.forEach(btn => btn.disabled = true); // Disable other buttons
-        let timer = setInterval(() => {
-            countdown--;
-            let minutes = Math.floor(countdown / 60);
-            let seconds = countdown % 60;
-            countdownDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-
-            if (countdown <= 0) {
-                clearInterval(timer);
-                countdownDisplay.textContent = '00:00'; // Reset countdown display
-                otherButtons.forEach(btn => btn.disabled = false); // Re-enable buttons
-            }
-        }, 1000);
-    });
-});
-
+<script>
 let activeTimer = null;
+let activeBreak = null;
+let isPaused = false;
+let countdown = 0; // Add this to track the remaining countdown time
 
-document.querySelectorAll('.pomodoro-btn').forEach(function (button) {
-    button.addEventListener('click', function () {
+document.querySelectorAll('.pomodoro-btn').forEach(function(button) {
+    button.addEventListener('click', function() {
+        if (activeTimer) return; // Prevent multiple timers from running
+
         let time = parseInt(this.textContent);
         let countdown = time * 60;
         let countdownDisplay = document.getElementById('countdown-display');
         let otherButtons = document.querySelectorAll('.pomodoro-btn');
 
-        if (activeTimer) return; // Prevent multiple timers from running
 
         otherButtons.forEach(btn => btn.disabled = true); // Disable other buttons
-        let timer = setInterval(() => {
+        activateBreakButtons(time) // Enable relevant break buttons
+
+        activeTimer = setInterval(() => {
             countdown--;
             let minutes = Math.floor(countdown / 60);
             let seconds = countdown % 60;
             countdownDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 
             if (countdown <= 0) {
-                clearInterval(timer);
+                clearInterval(activeTimer);
+                activeTimer = null;
                 countdownDisplay.textContent = '00:00'; // Reset countdown display
                 otherButtons.forEach(btn => btn.disabled = false); // Re-enable buttons
-                activeTimer = null; // Reset active timer
+                disableAllBreakButtons();
             }
         }, 1000);
-
-        activeTimer = timer; // Set active timer
     });
 });
 
+function activateBreakButtons(pomodoroTime) {
+    document.getElementById('break-5').classList.remove('disabled');
+    if (pomodoroTime >= 30) {
+        document.getElementById('break-10').classList.remove('disabled');
+    }
+    if (pomodoroTime >= 60) {
+        document.getElementById('break-20').classList.remove('disabled');
+    }
+}
 
-    </script>
+function disableAllBreakButtons() {
+    document.querySelectorAll('.break-btn').forEach(btn => {
+        btn.classList.add('disabled');
+        btn.textContent = btn.textContent.split(' ')[0] + ' min';
+    });
+}
+
+document.querySelectorAll('.break-btn').forEach(function(button) {
+    button.addEventListener('click', function() {
+        if (this.classList.contains('disabled') || activeBreak) return;
+
+        let breakTime = parseInt(this.textContent);
+        let breakCountdown = breakTime * 60;
+        this.classList.add('disabled');
+
+        clearInterval(activeTimer); // Pause the Pomodoro countdown
+
+        disableAllBreakButtons()
+        activeBreak = setInterval(() => {
+            breakCountdown--;
+            let minutes = Math.floor(breakCountdown / 60);
+            let seconds = breakCountdown % 60;
+            this.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds} min`;
+
+            if (breakCountdown <= 0) {
+                clearInterval(activeBreak);
+                activeBreak = null;
+                this.textContent = `${breakTime} min`; // Reset button text
+                resumePomodoroTimer(); // Resume the Pomodoro countdown
+                activateBreakButtons(breakTime)
+            }
+        }, 1000);
+    });
+});
+
+document.getElementById('pause-btn').addEventListener('click', function() {
+    if (!activeTimer) return; //If no timer is running, do nothing
+    clearInterval(activeTimer); // Pause the countdown
+    activeTimer = null; // Clear the active timer
+    isPaused = true;
+
+    // Enable the continue button, disable pause
+    document.getElementById('continue-btn').disabled = false;
+    document.getElementById('pause-btn').disabled = true;
+});
+
+document.getElementById('reset-btn').addEventListener('click', function() {
+    // Reset the countdown
+    clearInterval(activeTimer);
+    activeTimer = null;
+    countdown = 0;
+
+    // Reset the display and buttons
+    document.getElementById('countdown-display').textContent = '00:00';
+    document.querySelectorAll('.pomodoro-btn').forEach(btn => btn.disabled = false);
+    disableAllBreakButtons();
+    document.getElementById('pause-btn').disabled = true;
+    document.getElementById('continue-btn').disabled = true;
+    isPaused = false;
+});
+
+document.getElementById('continue-btn').addEventListener('click', function() {
+    if (!isPaused) return; // If not paused, do nothing
+    resumePomodoroTimer();
+
+    // Enable the pause button, disable continue
+    document.getElementById('pause-btn').disabled = false;
+    document.getElementById('continue-btn').disabled = true;
+});
+
+function resumePomodoroTimer() {
+    if (!countdown) return; // If no remaining countdown, do nothing
+
+    let countdownDisplay = document.getElementById('countdown-display');
+    activeTimer = setInterval(() => {
+        countdown--;
+        let minutes = Math.floor(countdown / 60);
+        let seconds = countdown % 60;
+        countdownDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+        if (countdown <= 0) {
+            clearInterval(activeTimer);
+            countdownDisplay.textContent = '00:00';
+            document.querySelectorAll('.pomodoro-btn').forEach(btn => btn.disabled = false);
+            disableAllBreakButtons();
+            activeTimer = null;
+            isPaused = false;
+        }
+    }, 1000);
+    isPaused = false;
+}
+
+</script>
 </body>
 </html>

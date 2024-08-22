@@ -1,13 +1,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>{% extends 'base.html' %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% extends 'base.html' %}</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
     {% block content %}
-    <h2>Add a New Task</h>
+    <h2>Add a New Task</h2>
     <div id="task-form-container">
         <form id="task-form" method="POST" action="{% url 'task_add' %}">
             {% csrf_token %}
@@ -32,16 +33,15 @@
         event.preventDefault();
         $.ajax({
             url: $(this).attr('action'),
-            method: 'POST'
+            method: 'POST',
             data: $(this).serialize(),
-            success: function(data) }
+            success: function(data) {
                 $('#task-list-container').gtml($(data).find('#task-list-container').html());
-            }
-            error: function(chr) {
-                console.error('Error:',xhr.responseText);
+            },
+            error: function() {
+                console.error(xhr.responseText);
             }
         });
     });
     </script>
 </body>
-</html>

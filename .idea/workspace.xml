@@ -4,19 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22003138-7b26-43e4-a1c9-19bad12959c0" name="Changes" comment="hhh">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_9_08_2024_16_00_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_9_08_2024_16_00__Changes_1.xml" beforeDir="false" />
+    <list default="true" id="22003138-7b26-43e4-a1c9-19bad12959c0" name="Changes" comment="changes">
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/todo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/todo.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo_project/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo_project/todo_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo_project/todo_app/migrations/0002_task_due_date.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/migrations/0002_task_deadline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo_project/todo_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo_project/todo_app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo_project/todo_app/templates/task_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/templates/todo_app/todo_lists.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo_project/todo_app/templates/todo_app/add_todo.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/templates/todo_app/add_todo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo_project/todo_app/templates/todo_app/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/templates/todo_app/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_project/todo_app/templates/todo_app/task_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/templates/todo_app/task_add.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo_project/todo_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo_project/todo_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/views.py" afterDir="false" />
     </list>
@@ -56,6 +52,9 @@
     &quot;accountId&quot;: &quot;5e58ba8b-d2a5-4b18-b65b-21c25c5ca699&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -67,25 +66,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Django Server.todo.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;ays&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.toDoOptions&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Django Server.todo.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "django.template.preview.state": "SHOW_EDITOR",
+    "git-widget-placeholder": "ays",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ayzza\PycharmProjects\todo\todo_project\todo_app\templates\todo_app" />
@@ -145,7 +144,21 @@
       <workItem from="1723805479206" duration="11762000" />
       <workItem from="1724055260441" duration="7810000" />
       <workItem from="1724068244961" duration="7066000" />
-      <workItem from="1724137396022" duration="316000" />
+      <workItem from="1724137396022" duration="6944000" />
+      <workItem from="1724151739341" duration="1735000" />
+      <workItem from="1724157968942" duration="3706000" />
+      <workItem from="1724164662024" duration="41000" />
+      <workItem from="1724226446556" duration="987000" />
+      <workItem from="1724228923130" duration="37000" />
+      <workItem from="1724228968409" duration="2258000" />
+      <workItem from="1724231273782" duration="759000" />
+      <workItem from="1724234743637" duration="1333000" />
+      <workItem from="1724238405020" duration="2878000" />
+      <workItem from="1724248493470" duration="154000" />
+      <workItem from="1724248656492" duration="2952000" />
+      <workItem from="1724310222579" duration="1128000" />
+      <workItem from="1724311394776" duration="2131000" />
+      <workItem from="1724314594940" duration="10599000" />
     </task>
     <task id="LOCAL-00001" summary="3.commit">
       <option name="closed" value="true" />
@@ -187,7 +200,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723819703817</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="changes">
+      <option name="closed" value="true" />
+      <created>1724139541355</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1724139541355</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,11 +230,10 @@
     <MESSAGE value="bos" />
     <MESSAGE value="Merge branch 'refs/heads/ays' into ays2" />
     <MESSAGE value="hhh" />
-    <option name="LAST_COMMIT_MESSAGE" value="hhh" />
     <MESSAGE value="ays2" />
-    <option name="LAST_COMMIT_MESSAGE" value="ays2" />
     <MESSAGE value="ays2" />
-    <option name="LAST_COMMIT_MESSAGE" value="ays2" />
+    <MESSAGE value="changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/todo$urls.coverage" NAME="urls Coverage Results" MODIFIED="1723194750378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/todo_project/todo_app" />
