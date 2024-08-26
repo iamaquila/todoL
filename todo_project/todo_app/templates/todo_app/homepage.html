@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -119,10 +118,11 @@
 
         .control-container {
             display: flex;
-            justify-content: space-between;
-            width: 100%;
+            flex-direction: row;
+            align-items: center;
             position: absolute;
             bottom: 20px;
+            right: 200px;
         }
         
         .control-btn {
@@ -136,19 +136,14 @@
             border: none;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
+            margin: 5px;
         }
         
-
-        .control-buttons button {
-            font-size: 12px;
-            border: none;
-            cursor: pointer;
-            background-color: transparent;
-            color: #333;
-        }
-
-        .control-buttons button:hover {
-            color: #007bff;
+        .control-btn:disabled {
+            background-color: gray;
+            color: white;
+            cursor: not-allowed;
+            opacity: 0.5;
         }
         
         .to-do-list h2 {
@@ -201,20 +196,20 @@
             <div class="container">
                 <h1></h1>
                 <ul>
-                    {% for item in todo_items %}
-                        <li>{{ item.name }}</li> <!-- Adjust according to your model fields -->
+                    {% for todo in todo_items %}
+                        <li>{{ todo.title }} - {{ todo.description }}</li> <!-- Adjust according to your model fields -->
                     {% empty %}
                         <li>No to-do lists yet!</li>
                     {% endfor %}
                 </ul>
 
-                <ul class="list-group">
+                <ul class="list-group"> 
                     {% for todo_lists in todo_lists %}
                     <li class="list-group-item">
                         <strong>{{ todo.title }}</strong> - {{ todo.description }}
                         {% if task.completed %}
                         <span class="badge bg-success">Completed</span>
-                        {% endif %}
+                        {% endif %} 
                     </li>
                     {% endfor %}
                 </ul>
@@ -276,6 +271,8 @@ let activeTimer = null;
 let activeBreak = null;
 let isPaused = false;
 let countdown = 0; // Add this to track the remaining countdown time
+let breakCountdown = 0;
+let countdownInterval
 
 document.querySelectorAll('.pomodoro-btn').forEach(function(button) {
     button.addEventListener('click', function() {
@@ -304,6 +301,7 @@ document.querySelectorAll('.pomodoro-btn').forEach(function(button) {
                 disableAllBreakButtons();
             }
         }, 1000);
+        document.getElementById('pause-btn').disabled = false; 
     });
 });
 
@@ -327,7 +325,7 @@ function disableAllBreakButtons() {
 document.querySelectorAll('.break-btn').forEach(function(button) {
     button.addEventListener('click', function() {
         if (this.classList.contains('disabled') || activeBreak) return;
-
+        
         let breakTime = parseInt(this.textContent);
         let breakCountdown = breakTime * 60;
         this.classList.add('disabled');
@@ -358,37 +356,44 @@ document.getElementById('pause-btn').addEventListener('click', function() {
     activeTimer = null; // Clear the active timer
     isPaused = true;
 
-    // Enable the continue button, disable pause
     document.getElementById('continue-btn').disabled = false;
     document.getElementById('pause-btn').disabled = true;
 });
 
 document.getElementById('reset-btn').addEventListener('click', function() {
-    // Reset the countdown
     clearInterval(activeTimer);
+    clearInterval(activeBreak);
+    activeBreak = null;
     activeTimer = null;
     countdown = 0;
+    breakCountdown = 0;
 
     // Reset the display and buttons
+    document.getElementById('break-5').textContent = '5 min';
+    document.getElementById('break-10').textContent = '10 min';
+    document.getElementById('break-20').textContent = '20 min';
     document.getElementById('countdown-display').textContent = '00:00';
     document.querySelectorAll('.pomodoro-btn').forEach(btn => btn.disabled = false);
     disableAllBreakButtons();
+    breakCountdown = 0;
     document.getElementById('pause-btn').disabled = true;
     document.getElementById('continue-btn').disabled = true;
     isPaused = false;
 });
 
+function resumePomodoroTimer() {
+    if (!countdown) return; // If no remaining countdown, do nothing
+
 document.getElementById('continue-btn').addEventListener('click', function() {
     if (!isPaused) return; // If not paused, do nothing
-    resumePomodoroTimer();
+    document.getElementById('countdown-display').textContent = 'countdown-display';
+    
 
     // Enable the pause button, disable continue
     document.getElementById('pause-btn').disabled = false;
     document.getElementById('continue-btn').disabled = true;
 });
 
-function resumePomodoroTimer() {
-    if (!countdown) return; // If no remaining countdown, do nothing
 
     let countdownDisplay = document.getElementById('countdown-display');
     activeTimer = setInterval(() => {
@@ -411,4 +416,3 @@ function resumePomodoroTimer() {
 
 </script>
 </body>
-</html>

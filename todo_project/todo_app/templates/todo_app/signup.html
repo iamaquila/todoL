@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Signup</title>
+    <style>
+        .container {
+            display: flex;
+        }
+        .form-container {
+            flex: 1;
+            margin: 10px;
+        }
+        .form-container h2 {
+            margin-bottom: 10px;
+        }
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-container form button {
+            margin-top: 10px;
+        }
+        .form-container a {
+            margin-top: 10px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Signup</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Signup</button>
+            </form>
+        </div>
+        <div class="form-container">
+            <h2>Login</h2>
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Login</button>
+                <a href="{% url 'password_reset' %}">I forgot my password</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
