@@ -124,9 +124,9 @@
             bottom: 20px;
             right: 200px;
         }
-        
+
         .control-btn {
-            width: 95px; 
+            width: 95px;
             height: 45px;
             border-radius: 50%;
             font-size: 13px;
@@ -138,14 +138,14 @@
             transition: background-color 0.3s ease, transform 0.3s ease;
             margin: 5px;
         }
-        
+
         .control-btn:disabled {
             background-color: gray;
             color: white;
             cursor: not-allowed;
             opacity: 0.5;
         }
-        
+
         .to-do-list h2 {
             font-size: 24px;
             color: #2c3e50;
@@ -203,13 +203,13 @@
                     {% endfor %}
                 </ul>
 
-                <ul class="list-group"> 
+                <ul class="list-group">
                     {% for todo_lists in todo_lists %}
                     <li class="list-group-item">
                         <strong>{{ todo.title }}</strong> - {{ todo.description }}
                         {% if task.completed %}
                         <span class="badge bg-success">Completed</span>
-                        {% endif %} 
+                        {% endif %}
                     </li>
                     {% endfor %}
                 </ul>
@@ -243,7 +243,7 @@
             <div class="countdown" id="countdown-display">00:00</div>
             </div>
         </div>
-    
+
 <div class="control-container">
     <button class="control-btn" id="pause-btn" disabled>
         <svg width="16" height="16" fill="currentColor" class="bi bi-pause" viewBox="0 0 16 16">
@@ -301,7 +301,7 @@ document.querySelectorAll('.pomodoro-btn').forEach(function(button) {
                 disableAllBreakButtons();
             }
         }, 1000);
-        document.getElementById('pause-btn').disabled = false; 
+        document.getElementById('pause-btn').disabled = false;
     });
 });
 
@@ -325,7 +325,7 @@ function disableAllBreakButtons() {
 document.querySelectorAll('.break-btn').forEach(function(button) {
     button.addEventListener('click', function() {
         if (this.classList.contains('disabled') || activeBreak) return;
-        
+
         let breakTime = parseInt(this.textContent);
         let breakCountdown = breakTime * 60;
         this.classList.add('disabled');
@@ -353,7 +353,9 @@ document.querySelectorAll('.break-btn').forEach(function(button) {
 document.getElementById('pause-btn').addEventListener('click', function() {
     if (!activeTimer) return; //If no timer is running, do nothing
     clearInterval(activeTimer); // Pause the countdown
+    clearInterval(activeBreak)
     activeTimer = null; // Clear the active timer
+    activeBreak = null;
     isPaused = true;
 
     document.getElementById('continue-btn').disabled = false;
@@ -381,19 +383,17 @@ document.getElementById('reset-btn').addEventListener('click', function() {
     isPaused = false;
 });
 
-function resumePomodoroTimer() {
-    if (!countdown) return; // If no remaining countdown, do nothing
-
+// Event listener for the continue button
 document.getElementById('continue-btn').addEventListener('click', function() {
     if (!isPaused) return; // If not paused, do nothing
-    document.getElementById('countdown-display').textContent = 'countdown-display';
-    
-
+    resumePomodoroTimer();
     // Enable the pause button, disable continue
     document.getElementById('pause-btn').disabled = false;
     document.getElementById('continue-btn').disabled = true;
 });
 
+function resumePomodoroTimer() {
+    if (!countdown) return; // If no remaining countdown, do nothing
 
     let countdownDisplay = document.getElementById('countdown-display');
     activeTimer = setInterval(() => {
