@@ -195,24 +195,25 @@
 
             <div class="container">
                 <h1></h1>
-                <ul>
-                    {% for todo in todo_items %}
-                        <li>{{ todo.title }} - {{ todo.description }}</li> <!-- Adjust according to your model fields -->
-                    {% empty %}
-                        <li>No to-do lists yet!</li>
-                    {% endfor %}
-                </ul>
+            <ul>
+                {% for todo in todo_items %}
+                    <li>{{ todo.title }} - {{ todo.description }}</li>
+                {% empty %}
+                    <li>No to-do lists yet!</li>
+                {% endfor %}
+            </ul>
 
-                <ul class="list-group">
-                    {% for todo_lists in todo_lists %}
-                    <li class="list-group-item">
-                        <strong>{{ todo.title }}</strong> - {{ todo.description }}
-                        {% if task.completed %}
-                        <span class="badge bg-success">Completed</span>
-                        {% endif %}
-                    </li>
-                    {% endfor %}
-                </ul>
+            <ul class="list-group">
+    {% for todo_lists in todo_lists %}
+    <li class="list-group-item">
+        <strong>{{ todo.title }}</strong> - {{ todo.description }}
+        {% if task.completed %}
+        <span class="badge bg-success">Completed</span>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+
             </div>
         </div>
     </div>
@@ -272,23 +273,24 @@ let activeBreak = null;
 let isPaused = false;
 let countdown = 0; // Add this to track the remaining countdown time
 let breakCountdown = 0;
-let countdownInterval
+let countdownInterval;
+let remainingTime = 0; // For timers, or similar for other processes
+let intervalId = null; // To store the ID of the interval or animation
 
 document.querySelectorAll('.pomodoro-btn').forEach(function(button) {
     button.addEventListener('click', function() {
         if (activeTimer) return; // Prevent multiple timers from running
 
         let time = parseInt(this.textContent);
-        let countdown = time * 60;
+        countdown = time * 60; // Update to use the global countdown variable
         let countdownDisplay = document.getElementById('countdown-display');
         let otherButtons = document.querySelectorAll('.pomodoro-btn');
-
 
         otherButtons.forEach(btn => btn.disabled = true); // Disable other buttons
         activateBreakButtons(time) // Enable relevant break buttons
 
         activeTimer = setInterval(() => {
-            countdown--;
+            countdown--; // Countdown variable now used here
             let minutes = Math.floor(countdown / 60);
             let seconds = countdown % 60;
             countdownDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
@@ -327,14 +329,14 @@ document.querySelectorAll('.break-btn').forEach(function(button) {
         if (this.classList.contains('disabled') || activeBreak) return;
 
         let breakTime = parseInt(this.textContent);
-        let breakCountdown = breakTime * 60;
+        breakCountdown = breakTime * 60; // Updated to use the global breakCountdown variable
         this.classList.add('disabled');
 
         clearInterval(activeTimer); // Pause the Pomodoro countdown
 
         disableAllBreakButtons()
         activeBreak = setInterval(() => {
-            breakCountdown--;
+            breakCountdown--; // breakCountdown variable now used here
             let minutes = Math.floor(breakCountdown / 60);
             let seconds = breakCountdown % 60;
             this.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds} min`;
@@ -344,16 +346,16 @@ document.querySelectorAll('.break-btn').forEach(function(button) {
                 activeBreak = null;
                 this.textContent = `${breakTime} min`; // Reset button text
                 resumePomodoroTimer(); // Resume the Pomodoro countdown
-                activateBreakButtons(breakTime)
+                activateBreakButtons(breakTime);
             }
         }, 1000);
     });
 });
 
 document.getElementById('pause-btn').addEventListener('click', function() {
-    if (!activeTimer) return; //If no timer is running, do nothing
+    if (!activeTimer) return; // If no timer is running, do nothing
     clearInterval(activeTimer); // Pause the countdown
-    clearInterval(activeBreak)
+    clearInterval(activeBreak);
     activeTimer = null; // Clear the active timer
     activeBreak = null;
     isPaused = true;
@@ -397,7 +399,7 @@ function resumePomodoroTimer() {
 
     let countdownDisplay = document.getElementById('countdown-display');
     activeTimer = setInterval(() => {
-        countdown--;
+        countdown--; // Continue the countdown
         let minutes = Math.floor(countdown / 60);
         let seconds = countdown % 60;
         countdownDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
