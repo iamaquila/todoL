@@ -1,4 +1,4 @@
 /.venv
 /todo_project/env
 /todo_project/db.sqlite3
-.idea/workspace.xml
+/workspace.xml

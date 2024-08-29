@@ -353,15 +353,21 @@ document.querySelectorAll('.break-btn').forEach(function(button) {
 });
 
 document.getElementById('pause-btn').addEventListener('click', function() {
-    if (!activeTimer) return; // If no timer is running, do nothing
-    clearInterval(activeTimer); // Pause the countdown
-    clearInterval(activeBreak);
-    activeTimer = null; // Clear the active timer
-    activeBreak = null;
-    isPaused = true;
+    if (activeBreak) {
+        alert("Devam eden bir mola varken durduramazsınız.");
+        return; // Eğer aktif bir mola varsa, geri kalan kodu çalıştırma
+    }
 
-    document.getElementById('continue-btn').disabled = false;
-    document.getElementById('pause-btn').disabled = true;
+    if (!activeTimer) return; // Eğer aktif bir zamanlayıcı yoksa, hiçbir şey yapma
+
+    clearInterval(activeTimer); // Zamanlayıcıyı duraklat
+    clearInterval(activeBreak); // Mola zamanlayıcısını duraklat
+    activeTimer = null; // Aktif zamanlayıcıyı temizle
+    activeBreak = null; // Aktif molayı temizle
+    isPaused = true; // Zamanlayıcının duraklatıldığını belirt
+
+    document.getElementById('continue-btn').disabled = false; // Devam et butonunu etkinleştir
+    document.getElementById('pause-btn').disabled = true; // Duraklat butonunu devre dışı bırak
 });
 
 document.getElementById('reset-btn').addEventListener('click', function() {
