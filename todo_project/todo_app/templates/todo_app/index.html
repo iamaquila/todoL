@@ -1,11 +1,104 @@
-    {% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        body {
+            display: flex;
+            height: 125vh;
+            margin: 0;
+            font-family: "Century Schoolbook", sans-serif;
+            background: radial-gradient( #800000, #000000, #800000); /* Adjust colors as needed */
+        }
 
-    {% block title %}Home{% endblock title %}
+        .left-side, .right-side {
+            width: 50%;
+            padding: 40px;
+            box-sizing: border-box;
+        }
 
-    {% block content %}
+        .left-side {
+            background: radial-gradient( #800000, #000000, #800000); /* Adjust colors as needed */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
+        .right-side {
+            background: radial-gradient( #800000, #000000, #800000); /* Adjust colors as needed */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
-    <h1>Create a To-Do List, Finish your Tasks Before Deadline and Use Pomodoro!</h1>
-    <p>This is the main page of the website.</p>
+        .form-container {
+            background-color: #F2E8C6;
+            padding: 20px;
+            border-radius: 8px;
+            width: 100%;
+        }
 
-    {% endblock content %}
+        .form-container h2 {
+            font-size: 24px;
+            color: #982B1C;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-container form input {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #982B1C;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .form-container form button {
+            background-color: #982B1C;
+            color: #F2E8C6;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .form-container form button:hover {
+            background-color: #DAD4B5;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <div class="left-side">
+        <div class="form-container">
+            <h2>Sign Up</h2>
+            <form method="POST" action="{% url 'homepage' %}">
+                {% csrf_token %}
+                {{ signup_form.as_p }}
+                <button type="submit" name="signup">Sign Up</button>
+            </form>
+        </div>
+    </div>
+    <div class="right-side">
+        <div class="form-container">
+            <h2>Login</h2>
+            <form method="POST" action="{% url 'homepage' %}">
+                {% csrf_token %}
+                {{ login_form.as_p }}
+                <button type="submit" name="login">Login</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

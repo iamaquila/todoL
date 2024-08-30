@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22003138-7b26-43e4-a1c9-19bad12959c0" name="Changes" comment="changes">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_9_08_2024_16_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_9_08_2024_16_00__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo_project/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo_project/todo_app/templates/todo_app/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/templates/todo_app/homepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_project/todo_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_project/todo_app/templates/todo_app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/templates/todo_app/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_project/todo_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo_project/todo_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo_project/todo_app/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +74,7 @@
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "django.template.preview.state": "SHOW_EDITOR",
-    "git-widget-placeholder": "#4 on aysPomodoro",
+    "git-widget-placeholder": "aysRegistration",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
